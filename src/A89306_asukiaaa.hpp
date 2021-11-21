@@ -37,26 +37,26 @@ class Core {
     // erase existing data
     result = writeRegister((uint8_t)AddressControl::Address, eepromAddress);
     if (result != 0) return result;
-    result = writeRegister((uint8_t)AddressControl::Data, 0U);
+    result = writeRegister((uint8_t)AddressControl::Data, (uint32_t)0);
     if (result != 0) return result;
-    result = writeRegister((uint8_t)AddressControl::Config, 3U);
+    result = writeRegister((uint8_t)AddressControl::Config, (uint32_t)3);
     if (result != 0) return result;
     delay(15);
-    result = writeRegister((uint8_t)AddressControl::Config, 3U);
+    result = writeRegister((uint8_t)AddressControl::Config, (uint32_t)3);
     if (result != 0) return result;
     delay(15);
 
     // write new data
-    result = writeRegister((uint8_t)AddressControl::Flag, 1U);
+    result = writeRegister((uint8_t)AddressControl::Flag, (uint32_t)1);
     if (result != 0) return result;
     result = writeRegister((uint8_t)AddressControl::Address, eepromAddress);
     if (result != 0) return result;
     result = writeRegister((uint8_t)AddressControl::Data, data32t);
     if (result != 0) return result;
-    result = writeRegister((uint8_t)AddressControl::Config, 5U);
+    result = writeRegister((uint8_t)AddressControl::Config, (uint32_t)5);
     if (result != 0) return result;
     delay(15);
-    result = writeRegister((uint8_t)AddressControl::Flag, 0U);
+    result = writeRegister((uint8_t)AddressControl::Flag, (uint32_t)0);
     return result;
   }
 
@@ -75,7 +75,8 @@ class Core {
     // for (uint8_t i = 0; i < 3; ++i) {
     //   auto index = 2 - i;
     //   Serial.print(' ');
-    //   Serial.print(string_asukiaaa::padStart(String(data[index], BIN), 8, '0'));
+    //   Serial.print(string_asukiaaa::padStart(String(data[index], BIN), 8,
+    //   '0'));
     // }
     auto result = writeRegister(registerAdresses, data);
     // Serial.println(result == 0 ? " succeeded" : " failed");
