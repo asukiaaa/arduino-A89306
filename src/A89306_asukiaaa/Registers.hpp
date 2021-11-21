@@ -23,9 +23,9 @@ class EEPROMBase {
   const uint8_t addressEEPROM;
   EEPROMBase(uint8_t address) : addressEEPROM(address) {}
   virtual ~EEPROMBase() = default;
-  virtual void parse(uint8_t data[3]);
-  virtual void print(Stream* serial);
-  virtual uint32_t toU32() const;
+  virtual void parse(uint8_t data[3]) = 0;
+  virtual void print(Stream* serial) = 0;
+  virtual uint32_t toU32() const = 0;
 };
 
 class EEPROM8 : public EEPROMBase {
