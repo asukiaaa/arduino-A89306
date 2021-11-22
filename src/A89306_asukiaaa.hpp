@@ -243,6 +243,14 @@ class Core {
     dataToWrite[0] = data[2];
     dataToWrite[1] = data[1];
     dataToWrite[2] = data[0];
+    // Serial.print(
+    //     "write EEPROM" +
+    //     String(utils::buildAddressEEPROMFromRegister(registerAddress)));
+    // for (int i = 0; i < 3; ++i) {
+    //   Serial.print(' ');
+    //   Serial.print(string_asukiaaa::padStart(String(data[i], BIN), 8, '0'));
+    // }
+    // Serial.println();
     auto result = wire_asukiaaa::writeBytes(wire, deviceAddress,
                                             registerAddress, dataToWrite, 3);
     return result;

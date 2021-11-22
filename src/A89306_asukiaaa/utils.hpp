@@ -14,5 +14,9 @@ uint8_t buildAddressRegisterFromEPROM(uint8_t addressEEPROM) {
   return addressEEPROM + 64;
 };
 
+uint8_t buildAddressEEPROMFromRegister(uint8_t addressRegister) {
+  return addressRegister - 64;
+};
+
 }  // namespace utils
 }  // namespace A89306_asukiaaa
