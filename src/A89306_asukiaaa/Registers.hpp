@@ -612,6 +612,26 @@ class EEPROM22 : public EEPROMBase {
 
   uint32_t toU32() const {
     uint32_t v = 0;
+    if (vdsThreshold == ValueTypes::VdsThereshold::v2) {
+      v |= utils::buildTrueBit(15);
+    }
+    if (deadtimeCompensation) {
+      v |= utils::buildTrueBit(12);
+    }
+    if (lockRestartSet == ValueTypes::LockRestartSet::sec10) {
+      v |= utils::buildTrueBit(11);
+    }
+    if (vibrationLock) {
+      v |= utils::buildTrueBit(10);
+    }
+    if (softOff4Sec) {
+      v |= utils::buildTrueBit(9);
+    }
+    if (brakeMode) {
+      v |= utils::buildTrueBit(8);
+    }
+    v |= ((uint8_t)restartAttempt & 0b11) << 6;
+    v |= (uint8_t)clockSpeedRatioRegisterValue & 0b111111;
     return v;
   }
 
