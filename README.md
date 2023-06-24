@@ -1,6 +1,6 @@
 # arduino-A89306 (A89306_asukiaaa)
 
-A library to communicate with motori driver A89306
+A library to communicate with motor driver A89306
 
 ## Usage
 
